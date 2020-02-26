@@ -28,7 +28,8 @@ def File_Exist():
 		else:
 			print ('File does not exist, type exit to exit')
 
-# iterates over the entered filenames after and plots them on the graph
+# iterates over the entered filenames after and plot on a single graph.
+# x and y max are the largest x and y value found from every submitted file
 def Imposedplot():
 	#opens and reads the file
 	for k in filenames:
@@ -59,6 +60,9 @@ def Imposedplot():
 	plt.xlabel('Mma')
 	plt.legend(loc="upper right" )
 
+# function to create stacked figures.
+# first three are created below each other
+# four are generate as a 2x2 matrix
 def StackedPlot():
 	linecolours = ['b', 'g', 'r','k','m']
 	fc = int(FC)
@@ -127,7 +131,7 @@ while True:
 		print ('Input not valid')
 
 i = 0
-#Get file names, products
+#Gets user imput for  file names and the legenda listed  products
 while i < ValFC:
 	j = File_Exist()
 	i = i + 1
@@ -135,7 +139,7 @@ while i < ValFC:
 	Product = ''
 	# Plot detail input
 	while Product == '':
-		Product = input('Product: ')
+		Product = input('Product(legend): ')
 	productnames = productnames + [Product]
 	filenames = filenames + [j]
 
@@ -144,7 +148,7 @@ while Nameofplot == '':
 
 while True:
     FC = int(FC)
-    FigC = input('Stacked (experimental) or superimposed?: ')
+    FigC = input('Stacked or superimposed?: ')
     if FigC == 'stacked' or FigC == 'Stacked':
         if FC == 1:
             Imposedplot()
