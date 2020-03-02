@@ -6,8 +6,8 @@ Copy script to the folder containing your TSV data files
 Open a terminal, navigate to the folder and run the script
 
 ## For windows:
-cd C:\PATHTOFILE
-py LBDatagraph(SPvsMma).py
+ - cd C:\PATHTOFILE
+ - py LBDatagraph(SPvsMma).py
 
 
 ## Requirements:
