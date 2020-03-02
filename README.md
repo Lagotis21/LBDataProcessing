@@ -2,7 +2,6 @@
 Repository for KSV LB Data processing
 A simple scripts for generating LB isotherm figures
 
-To use:
 Copy script to the folder containing your TSV data files
 Open a terminal, navigate to the folder and run the script
 
