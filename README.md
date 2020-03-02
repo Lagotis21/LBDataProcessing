@@ -5,12 +5,12 @@ A simple scripts for generating LB isotherm figures
 Copy script to the folder containing your TSV data files
 Open a terminal, navigate to the folder and run the script
 
-# For windows:
+## For windows:
 cd C:\PATHTOFILE
 py LBDatagraph(SPvsMma).py
 
 
-# Requirements:
+## Requirements:
 * Python 3
 * matplotlib
 
