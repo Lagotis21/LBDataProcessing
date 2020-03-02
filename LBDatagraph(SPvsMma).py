@@ -2,8 +2,8 @@ import os.path
 import math
 import csv
 import matplotlib.pyplot as plt
-
-# time, Bpos, Bspd, areacm,Mma,sp1sp2
+# column numbers: [0] time, [1] Bpos,
+# [2] Bspd, [3] areacm, [4] Mma, [5] sp1 [6] sp2
 filenames = []
 plotnames = []
 productnames = []
