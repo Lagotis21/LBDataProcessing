@@ -36,15 +36,10 @@ def Imposedplot():
 		x = []
 		y = []
 		with open(k, 'r') as file:
-			if k.endswith('.txt'):
-				csv_reader = csv.reader(file, dialect="excel-tab")
-			elif k.endswith('.csv'):
-				csv_reader = csv.reader(file, delimiter=',')
-			line_count = 0 # temp to keep output limited
+			csv_reader = csv.reader(file, dialect="excel-tab")
 			for row in csv_reader:
 				x.append(float(row[4]))
 				y.append(float(row[5]))
-				line_count += 1 #used to check amount of datapoints
 		maxx.append(max(x))
 		maxy.append(max(y))
 		position = filenames.index(k)
@@ -57,7 +52,7 @@ def Imposedplot():
 	plt.axis([0, xy, 0, yx])
 	plt.suptitle(Nameofplot)
 	plt.ylabel('SP [mN/m]')
-	plt.xlabel('Mma')
+	plt.xlabel('Mean Molecular Area [Å]\N{SUPERSCRIPT TWO}')
 	plt.legend(loc="upper right" )
 
 # function to create stacked figures.
@@ -73,10 +68,7 @@ def StackedPlot():
 			x = []
 			y = []
 			with open(k, 'r') as file:
-				if k.endswith('.txt'):
-					csv_reader = csv.reader(file, dialect="excel-tab")
-				elif k.endswith('.csv'):
-					csv_reader = csv.reader(file, delimiter=',')
+				csv_reader = csv.reader(file, dialect="excel-tab")
 				for row in csv_reader:
 					x.append(float(row[4]))
 					y.append(float(row[5]))
@@ -89,7 +81,7 @@ def StackedPlot():
 			pltcnt = pltcnt + 1
 
 		for ax in axs.flat:
-			ax.set(xlabel='Mma', ylabel='SP [mN/m]')
+			ax.set(xlabel='Mma [Å]\N{SUPERSCRIPT TWO}', ylabel='SP [mN/m]')
 		fig.suptitle(Nameofplot)
 	else:
 		fig, axs = plt.subplots(2,2)
@@ -98,10 +90,7 @@ def StackedPlot():
 			x = []
 			y = []
 			with open(k, 'r') as file:
-				if k.endswith('.txt'):
-					csv_reader = csv.reader(file, dialect="excel-tab")
-				elif k.endswith('.csv'):
-					csv_reader = csv.reader(file, delimiter=',')
+				csv_reader = csv.reader(file, dialect="excel-tab")
 				for row in csv_reader:
 					x.append(float(row[4]))
 					y.append(float(row[5]))
@@ -115,7 +104,7 @@ def StackedPlot():
 			pltcnt = pltcnt + 1
 
 		for ax in axs.flat:
-			ax.set(xlabel='Mma', ylabel='SP [mN/m]')
+			ax.set(xlabel='Mma [Å]\N{SUPERSCRIPT TWO}', ylabel='SP [mN/m]')
 		plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95,
 							hspace=0.25, wspace=0.35)
 		fig.suptitle(Nameofplot)
@@ -131,6 +120,7 @@ while True:
 		print ('Input not valid')
 
 i = 0
+
 #Gets user imput for  file names and the legenda listed  products
 while i < ValFC:
 	j = File_Exist()
@@ -160,8 +150,6 @@ while True:
         Imposedplot()
         break
 
-
-#plt.show()
 # saving and closing
 figname = input('Save figure as: ')
 figname = figname + '.png'
